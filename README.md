@@ -1,2 +1,2 @@
 # Piscis
-School Project
+School Project for HTL
