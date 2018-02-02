@@ -2,16 +2,16 @@
 
 require("phpMQTT.php");
 
-$server = "m23.cloudmqtt.com";
-$port = 14644;
-$username = "npecdscx";
-$password = "NnzwxDOIL-x9";
-$client_id = "Piscis-publisher";
+$server = "10.117.236.240";
+$port = 1883;
+$username = "piscis";
+$password = "piscis";
+$client_id = "Piscis-web-publisher";
 
 $mqtt = new phpMQTT($server, $port, $client_id);
 
 if ($mqtt->connect(true, NULL, $username, $password)) {
-	$mqtt->publish("Piscis/testing", "Hello World!", 0);
+	$mqtt->publish("dev/test", "Hello World!", 0);
 	$mqtt->close();
 } else {
     echo "Time out!\n";
