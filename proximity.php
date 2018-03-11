@@ -12,7 +12,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <title>Temperatur</title>
+  <title>Präsenz</title>
 
 </head>
 <body>
@@ -31,13 +31,13 @@
           <a class="nav-link" href="funktion.html">Wie es funktioniert</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="temperature.html">Temperatur</a>
+          <a class="nav-link" href="temperature.php">Temperatur</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="humidity.html">Luftfeuchtigkeit</a>
+          <a class="nav-link" href="humidity.php">Luftfeuchtigkeit</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="proximity.html">Präsenz</a>
+          <a class="nav-link active" href="proximity.php">Präsenz</a>
         </li>
       </ul>
       <ul class="nav justify-content-end">
@@ -89,6 +89,33 @@
 
   </div>
   </center>
+
+  <div class="list">
+    <table border="1">
+        <tr>
+            <td><center>ID</center></td>
+            <td><center>Timestamp</center></td>
+            <td><center>Messwert</center></td>
+        </tr>
+        <?php
+            $link= mysqli_connect("localhost","root","root","piscis");
+                   mysqli_set_charset($link,"utf8");
+
+            $sql = "SELECT prx_id, prx_timestamp, prx_messwert
+                      FROM prx_messdaten";
+          
+            $result = mysqli_query($link,$sql);
+            while($row=mysqli_fetch_array($result))
+            {
+                echo "<tr>";
+                echo "<td>".$row["prx_id"]."</td>";
+                echo "<td>".$row["prx_timestamp"]."</td>";
+                echo "<td>".$row["prx_messwert"]."</td>";
+                echo "</tr>";
+            }
+        ?>
+    </table>
+  </div>
 
   <!--Footer-->
   <center>
