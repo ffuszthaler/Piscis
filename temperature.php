@@ -1,5 +1,55 @@
 <!DOCTYPE html>
 <html lang="de">
+
+<?php
+$link= mysqli_connect("localhost","root","root","piscis");
+       mysqli_set_charset($link,"utf8");
+$sql = "SELECT tmp_id, tmp_timestamp, tmp_messwert
+        FROM tmp_messdaten";
+$result = mysqli_query($link,$sql);
+
+$i=0;
+$chart_labels = "labels: [";
+while($row=mysqli_fetch_array($result))
+{
+  $i++;
+  //$md_data[$row["tmp_timestamp"]][$row["tmp_id"]] .= $row["tmp_messwert"].',';
+  if ((round(strtotime($row["tmp_timestamp"])/600)*600) != $old_timestamp)
+  {
+    $chart_labels .= "'".date('Y-m-d H:i', round(strtotime($row["tmp_timestamp"])/600)*600)."',";
+  }
+
+  $old_timestamp = round(strtotime($row["tmp_timestamp"])/600)*600;
+}
+$chart_labels = rtrim($chart_labels, ',');
+$chart_labels .= "]";
+
+$chart_data = "datasets: [";
+$r = 0;
+$g = 150;
+$b = 100;
+foreach ($old_timestamp as $key => $tmp_id) {
+  foreach ($tmp_id as $key => $value) {
+    $color = $r.','.$g.','.$b;
+    $chart_data .= '{label: "'.$key.'",';
+    $chart_data .= 'fillColor: "rgba('.$color.', 0.2)",';
+    $chart_data .= 'strokeColor: "rgb('.$color.')",';
+    $chart_data .= 'pointColor: "rgba('.$color.',1)",';
+    $chart_data .= 'pointStrokeColor: "#fff",';
+    $chart_data .= 'pointHighlightFill: "#fff",';
+    $chart_data .= 'pointHighlightStroke: "rgba('.$color.',1)",';
+    $chart_data .= 'data: ['.rtrim($value,',').']},';
+    $r = $r+10;
+    $b = $b+60;
+    if ($r > 250) $r = 50;
+    if ($g > 250) $g = 150;
+    if ($b > 250) $b = 0;
+  }
+}
+$chart_data = rtrim($chart_data, ',');
+$chart_data .= "]";
+?>
+
 <head>
   <!--Verlinkungen von CSS, JS ; Meta/Kopfdaten ; Titel-->
   <meta charset="UTF-8">
@@ -15,7 +65,7 @@
   <title>Temperatur</title>
 
 </head>
-<body>
+<body onload="displayLineChart();">
 
   <!--Navigationsleiste-->
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -56,9 +106,19 @@
   <div class="funktion">
     <br>
     
-    <canvas id="myChart" width="400" height="100"></canvas>
+    <canvas id="lineChart" height="250" width="500"></canvas></div>
     <script>
-    var ctx = document.getElementById("myChart").getContext('2d');
+      var ctx = document.getElementById("lineChart");
+      var lineChart = new Chart(ctx, {
+        type: 'line',
+        <?php echo $chart_labels; ?>,
+        <?php echo $chart_data; ?>
+      });
+    </script>
+
+    <!--<canvas id="myChart" width="400" height="100"></canvas>-->
+    <script>
+    /*var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -75,16 +135,8 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
+        options: {}
+    });*/
     </script>
 
   </div>
