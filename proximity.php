@@ -91,11 +91,11 @@
   </center>
 
   <div class="list">
-    <table border="1">
+    <table class="table table-bordered table-sm">
         <tr>
-            <td><center>ID</center></td>
-            <td><center>Timestamp</center></td>
-            <td><center>Messwert</center></td>
+            <th scope="col">#</th>
+            <th scope="col">Timestamp</th>
+            <th scope="col">Messwert</th>
         </tr>
         <?php
             $link= mysqli_connect("localhost","root","root","piscis");
