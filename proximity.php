@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+  
 <head>
   <!--Verlinkungen von CSS, JS ; Meta/Kopfdaten ; Titel-->
   <meta charset="UTF-8">
@@ -13,7 +14,6 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Präsenz</title>
-
 </head>
 <body>
 

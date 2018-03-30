@@ -63,7 +63,6 @@ $chart_data .= "]";
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Temperatur</title>
-
 </head>
 <body onload="displayLineChart();">
 
