@@ -117,14 +117,5 @@
     </table>
   </div>
 
-  <!--Footer-->
-  <center>
-  <footer class="footer fixed-bottom">
-    <div class="container">
-      <span class="text-muted">&copy; Florian Fußthaler &amp; Tizian Grundböck</span>
-    </div>
-  </footer>
-  </center>
-
 </body>
 </html>
