@@ -45,7 +45,7 @@
           <a class="nav-link" href="Piscis-debug.apk">Hol dir die App!</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="impressum.php">Impressum</a>
+          <a class="nav-link active" href="impressum.html">Impressum</a>
         </li>
       </ul>
     </div>
