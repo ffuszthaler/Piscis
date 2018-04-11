@@ -23,12 +23,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="funktion.html">Zurück zum Menü</a>
+    <a class="navbar-brand" href="index.html">Zurück zum Start</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="funktion.html">Wie es funktioniert</a>
+          <a class="nav-link" href="heating.php">Heizung</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="temperature.php">Temperatur</a>
@@ -54,6 +54,8 @@
   <!--Inhalt-->
   <center>
   <div class="funktion">
+    <br>
+    <h1>Luftfeuchtigkeit</h1>
     <br>
     
     <canvas id="myChart" width="400" height="100"></canvas>
@@ -93,9 +95,9 @@
   <div class="list">
     <table class="table table-bordered table-sm">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Timestamp</th>
-            <th scope="col">Messwert</th>
+            <th scope="col">ID</th>
+            <th scope="col">Zeit</th>
+            <th scope="col">Luftfeuchte (%)</th>
         </tr>
         <?php
             $link= mysqli_connect("localhost","root","root","piscis");

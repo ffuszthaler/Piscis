@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
-  
+
 <head>
   <!--Verlinkungen von CSS, JS ; Meta/Kopfdaten ; Titel-->
   <meta charset="UTF-8">
@@ -13,7 +13,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <title>Präsenz</title>
+  <title>Heizung</title>
 </head>
 <body>
 
@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="heating.php">Heizung</a>
+          <a class="nav-link active" href="heating.php">Heizung</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="temperature.php">Temperatur</a>
@@ -37,7 +37,7 @@
           <a class="nav-link" href="humidity.php">Luftfeuchtigkeit</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="proximity.php">Präsenz</a>
+          <a class="nav-link" href="proximity.php">Präsenz</a>
         </li>
       </ul>
       <ul class="nav justify-content-end">
@@ -55,64 +55,43 @@
   <center>
   <div class="funktion">
     <br>
-    <h1>Präsenz</h1>
+    <h1>Heizungssteuerung</h1>
     <br>
-    
-    <canvas id="myChart" width="400" height="100"></canvas>
-    <script>
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-            datasets: [{
-                label: '# of Votes',
-                data: [21, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    '#648BBF'
-                ],
-                borderColor: [
-                    '#435D7F'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-    </script>
-
+    <button type="button" class="btn btn-success">Einschalten</button>
+    <button type="button" class="btn btn-danger">Ausschalten</button>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary">+1&#8451;</button>
+    <button type="button" class="btn btn-primary">-1&#8451;</button>
+    <button type="button" class="btn btn-primary">+5&#8451;</button>
+    <button type="button" class="btn btn-primary">-5&#8451;</button>
+    <button type="button" class="btn btn-primary">+10&#8451;</button>
+    <button type="button" class="btn btn-primary">-10&#8451;</button>
   </div>
   </center>
-
+    <br>
+    <br>
   <div class="list">
     <table class="table table-bordered table-sm">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Zeit</th>
-            <th scope="col">Messwert</th>
+            <th scope="col">Temperatur (&#8451;)</th>
         </tr>
         <?php
             $link= mysqli_connect("localhost","root","root","piscis");
                    mysqli_set_charset($link,"utf8");
 
-            $sql = "SELECT prx_id, prx_timestamp, prx_messwert
-                      FROM prx_messdaten";
+            $sql = "SELECT tmp_id, tmp_timestamp, tmp_messwert
+                      FROM tmp_messdaten";
           
             $result = mysqli_query($link,$sql);
             while($row=mysqli_fetch_array($result))
             {
                 echo "<tr>";
-                echo "<td>".$row["prx_id"]."</td>";
-                echo "<td>".$row["prx_timestamp"]."</td>";
-                echo "<td>".$row["prx_messwert"]."</td>";
+                echo "<td>".$row["tmp_id"]."</td>";
+                echo "<td>".$row["tmp_timestamp"]."</td>";
+                echo "<td>".$row["tmp_messwert"]."</td>";
                 echo "</tr>";
             }
         ?>
