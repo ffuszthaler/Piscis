@@ -57,16 +57,18 @@
     <br>
     <h1>Heizungssteuerung</h1>
     <br>
-    <button type="button" class="btn btn-success">Einschalten</button>
-    <button type="button" class="btn btn-danger">Ausschalten</button>
     <br>
+    <form action="/mqtt/on.php" method="get">
+      <button type="submit" class="btn btn-success">Einschalten</button>
+      <button type="submit" formaction="/mqtt/off.php" class="btn btn-danger">Ausschalten</button>
+      <br>
+      <br>
+      <button type="submit" formaction="/mqtt/temp_18.php" class="btn btn-primary">18&#8451;</button>
+      <button type="submit" formaction="/mqtt/temp_20.php" class="btn btn-primary">20&#8451;</button>
+      <button type="submit" formaction="/mqtt/temp_22.php" class="btn btn-primary">22&#8451;</button>
+      <button type="submit" formaction="/mqtt/temp_24.php" class="btn btn-primary">24&#8451;</button>
+    </form>
     <br>
-    <button type="button" class="btn btn-primary">+1&#8451;</button>
-    <button type="button" class="btn btn-primary">-1&#8451;</button>
-    <button type="button" class="btn btn-primary">+5&#8451;</button>
-    <button type="button" class="btn btn-primary">-5&#8451;</button>
-    <button type="button" class="btn btn-primary">+10&#8451;</button>
-    <button type="button" class="btn btn-primary">-10&#8451;</button>
   </div>
   </center>
     <br>
