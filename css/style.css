@@ -1,23 +1,23 @@
-.landing-piscis{
-    margin:0;
-    color:#FFFFFF;
-    line-height:1.6;
-    background-image:url(../img/bg.jpg);
-    background-size:cover;
-    background-position:center;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:0 20px;
+.landing-piscis {
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.6;
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
 }
 
-.titel-piscis{
-    font-size: 60px
+.titel-piscis {
+  font-size: 60px;
 }
 
-.untertitel-piscis{
-    font-size: 50px
+.untertitel-piscis {
+  font-size: 50px;
 }
