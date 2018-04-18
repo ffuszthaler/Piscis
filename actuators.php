@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
-  
+
 <head>
   <!--Verlinkungen von CSS, JS ; Meta/Kopfdaten ; Titel-->
   <meta charset="UTF-8">
@@ -13,7 +13,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <title>Luftfeuchtigkeit</title>
+  <title>Aktoren</title>
 </head>
 <body>
 
@@ -37,7 +37,7 @@
           <a class="nav-link" href="temperature.php">Temperatur</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="humidity.php">Luftfeuchtigkeit</a>
+          <a class="nav-link" href="humidity.php">Luftfeuchtigkeit</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="proximity.php">Präsenz</a>
@@ -58,69 +58,56 @@
   <center>
   <div class="funktion">
     <br>
-    <h1>Luftfeuchtigkeit</h1>
+    <h1>Aktoren</h1>
     <br>
-    
-    <canvas id="myChart" width="400" height="100"></canvas>
-    <script>
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-            datasets: [{
-                label: '# of Votes',
-                data: [21, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    '#648BBF'
-                ],
-                borderColor: [
-                    '#435D7F'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-    </script>
-
+    <br>
+    <h4>Wohnzimmerlampe</h4>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-success">
+        <input type="radio" name="options" id="option1" autocomplete="off">Einschalten
+      </label>
+      <label class="btn btn-danger">
+        <input type="radio" name="options" id="option2" autocomplete="off">Ausschalten
+      </label>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h4>PC im Schlafzimmer</h4>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-success">
+        <input type="radio" name="options" id="option3" autocomplete="off">Einschalten
+      </label>
+      <label class="btn btn-danger">
+        <input type="radio" name="options" id="option4" autocomplete="off">Ausschalten
+      </label>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h4>Fernseher im Wonzimmer</h4>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-success">
+        <input type="radio" name="options" id="option5" autocomplete="off">Einschalten
+      </label>
+      <label class="btn btn-danger">
+        <input type="radio" name="options" id="option6" autocomplete="off">Ausschalten
+      </label>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h4>Radio in der Küche</h4>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-success">
+        <input type="radio" name="options" id="option7" autocomplete="off">Einschalten
+      </label>
+      <label class="btn btn-danger">
+        <input type="radio" name="options" id="option8" autocomplete="off">Ausschalten
+      </label>
+    </div>
   </div>
   </center>
-
-  <div class="list">
-    <table class="table table-bordered table-sm">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Zeit</th>
-            <th scope="col">Luftfeuchte (%)</th>
-        </tr>
-        <?php
-            $link= mysqli_connect("localhost","root","root","piscis");
-                   mysqli_set_charset($link,"utf8");
-
-            $sql = "SELECT hmd_id, hmd_timestamp, hmd_messwert
-                      FROM hmd_messdaten";
-          
-            $result = mysqli_query($link,$sql);
-            while($row=mysqli_fetch_array($result))
-            {
-                echo "<tr>";
-                echo "<td>".$row["hmd_id"]."</td>";
-                echo "<td>".$row["hmd_timestamp"]."</td>";
-                echo "<td>".$row["hmd_messwert"]."</td>";
-                echo "</tr>";
-            }
-        ?>
-    </table>
-  </div>
 
 </body>
 </html>

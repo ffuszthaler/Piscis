@@ -80,6 +80,9 @@ $chart_data .= "]";
           <a class="nav-link" href="heating.php">Heizung</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link active" href="actuators.php">Aktoren</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" href="temperature.php">Temperatur</a>
         </li>
         <li class="nav-item">
